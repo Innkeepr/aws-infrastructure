@@ -12,8 +12,7 @@ Go to IAM --> select in the left table of contents "Users" --> Add users (on the
 4. Add tags:
     Key: user, Value: innkeepr
 5. Review: Should look like something like this
-!(Figures/AddUserReview.png)
-!(https://raw.githubusercontent.com/Innkeepr/aws-infrastructure/master/Figures/AddUserReview.png?token=GHSAT0AAAAAABIX3K75K3RRVR2656O7WLWEYPOSKPQ)
+![see Figure](https://raw.githubusercontent.com/Innkeepr/aws-infrastructure/master/Figures/AddUserReview.png?token=GHSAT0AAAAAABIX3K75K3RRVR2656O7WLWEYPOSKPQ)
 6. Create User
     - Copy Access Key, Secret Access Key and Password
     - Send Mail to: team@innkeepr.ai
