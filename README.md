@@ -16,12 +16,13 @@ Go to IAM --> select in the left table of contents "Users" --> Add users (on the
 6. Create User
     - Copy Access Key, Secret Access Key and Password
     - Send Mail to: team@innkeepr.ai
+    - Send the Password to our Mail
 
 ## Customize the following files
 - >aws_infrastructure.sh:
     - insert "your" AWS ID in YOURAWSID
 - >policy_lambda.json
-    - insert the AWSID from the Innkeepr User for InnkeeprAWSID
+    - insert t"your" AWS ID in for YOURAWSID
 
 ## Policies
 The policies can be found in the directory Policies. In general the polcies allow the whole access to each AWS component. If you want to restrict the accesss you can modify the single json files, e.g.to allwo access to a certain S§ bucket (noramly we call the bucket for Innkeer: innkeepr-analytics).

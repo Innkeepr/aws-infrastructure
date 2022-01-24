@@ -12,9 +12,9 @@
                 "ec2:Stop*"
             ],
             "Resource": [
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:instance/i-#EC2AnalyticsInstance",
-                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*",
-                "arn:aws:sns:eu-central-1:InnkeeprAWSID:innkeepr-analyticsapi-sns"
+                "arn:aws:ec2:eu-central-1:YOURAWSID:instance/i-#EC2AnalyticsInstance",
+                "arn:aws:ecs:eu-central-1:YOURAWSID:task-definition/innkeepr-analytics*",
+                "arn:aws:sns:eu-central-1:YOURAWSID:innkeepr-analyticsapi-sns"
             ]
         },
         {
@@ -26,11 +26,11 @@
                 "ecs:StartTask"
             ],
             "Resource": [
-                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*",
-                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics-dev*",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/*",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/*",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:network-interface/*"
+                "arn:aws:ecs:eu-central-1:YOURAWSID:task-definition/innkeepr-analytics*",
+                "arn:aws:ecs:eu-central-1:YOURAWSID:task-definition/innkeepr-analytics-dev*",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:subnet/*",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:security-group/*",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:network-interface/*"
             ]
         },
         {
@@ -41,8 +41,8 @@
                 "iam:PassRole"
             ],
             "Resource": [
-                "arn:aws:iam::InnkeeprAWSID:role/InnkeeprAmazonECSTaskS3BucketRole",
-                "arn:aws:iam::InnkeeprAWSID:role/innkeepr-lambda-ex"
+                "arn:aws:iam::YOURAWSID:role/InnkeeprAmazonECSTaskS3BucketRole",
+                "arn:aws:iam::YOURAWSID:role/innkeepr-lambda-ex"
             ]
         },
         {
@@ -69,12 +69,22 @@
                 "ecs:StartTask"
             ],
             "Resource": [
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/subnet-#EC2AnalyticsInstance",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/subnet-#EC2AnalyticsInstance",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/sg-#innkeepr-analytisc-sg-lambda",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/sg-#EC2AnalyticsInstance",
-                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:network-interface/eni-#NetworkInterface",
-                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*"
+                "arn:aws:ec2:eu-central-1:YOURAWSID:subnet/subnet-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:subnet/subnet-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:security-group/sg-#innkeepr-analytisc-sg-lambda",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:security-group/sg-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:YOURAWSID:network-interface/eni-#NetworkInterface",
+                "arn:aws:ecs:eu-central-1:YOURAWSID:task-definition/innkeepr-analytics*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor6",
+            "Effect": "Allow",
+            "Action": [
+                "lambda:*"
+            ],
+            "Resource": [
+                "*"
             ]
         }
     ]
