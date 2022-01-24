@@ -1,0 +1,81 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish",
+                "ecs:RunTask",
+                "ec2:Start*",
+                "ecs:StartTask",
+                "ec2:Stop*"
+            ],
+            "Resource": [
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:instance/i-#EC2AnalyticsInstance",
+                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*",
+                "arn:aws:sns:eu-central-1:InnkeeprAWSID:innkeepr-analyticsapi-sns"
+            ]
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateNetworkInterface",
+                "ecs:RunTask",
+                "ecs:StartTask"
+            ],
+            "Resource": [
+                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*",
+                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics-dev*",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/*",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/*",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:network-interface/*"
+            ]
+        },
+        {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::InnkeeprAWSID:role/InnkeeprAmazonECSTaskS3BucketRole",
+                "arn:aws:iam::InnkeeprAWSID:role/innkeepr-lambda-ex"
+            ]
+        },
+        {
+            "Sid": "VisualEditor3",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor4",
+            "Effect": "Allow",
+            "Action": "ec2:DescribeInstances",
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor5",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateNetworkInterface",
+                "ecs:RunTask",
+                "ecs:StartTask"
+            ],
+            "Resource": [
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/subnet-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:subnet/subnet-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/sg-#innkeepr-analytisc-sg-lambda",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:security-group/sg-#EC2AnalyticsInstance",
+                "arn:aws:ec2:eu-central-1:InnkeeprAWSID:network-interface/eni-#NetworkInterface",
+                "arn:aws:ecs:eu-central-1:InnkeeprAWSID:task-definition/innkeepr-analytics*"
+            ]
+        }
+    ]
+}
