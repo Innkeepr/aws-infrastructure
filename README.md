@@ -22,7 +22,7 @@ Go to IAM --> select in the left table of contents "Users" --> Add users (on the
 - >aws_infrastructure.sh:
     - insert "your" AWS ID in YOURAWSID
 - >policy_lambda.json
-    - insert t"your" AWS ID in for YOURAWSID
+    - insert "your" AWS ID in for YOURAWSID
 
 ## Policies
 The policies can be found in the directory Policies. In general, the policies allow full access to each AWS component. If you want to restrict the access, you can modify the single JSON files, e.g., to allow access to a certain S3 bucket. We name the bucket for Innkeer "innkeepr-analytics" normally.

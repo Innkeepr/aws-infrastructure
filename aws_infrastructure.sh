@@ -32,6 +32,8 @@ aws iam create-policy --policy-document file://Policies/policy_s3.json --policy-
 echo "Create Policies: SNS"
 aws iam create-policy --policy-document file://Policies/policy_sns.json --policy-name InnkeeprSNSAccess --description "Allows SNS for Innkeepr"
 
+echo "Create Policiy: InnkeeprAccessAnalyzer"
+aws iam create-policy --policy-document file://Policies/policy_access_analyzer.json --policy-name InnkeeprAccessAnalyzer --description "Allows Analysis Access for Innkeepr"
 # Create Roles
 ##  InnkeeprAmazonECSTaskS3BucketRole
 echo "Create Roles: InnkeeprAmazonECSTaskS3BucketRole"
@@ -62,3 +64,5 @@ echo "Attach InnkeeprAcmAccess"
 aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprAcmAccess --user-name Innkeepr
 echo "Attach InnkeeprLambdaAccess"
 aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprLambdaAccess --user-name Innkeepr
+echo "Attach InnkeeprAccessAnalyzer"
+aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprAccessAnalyzer --user-name Innkeepr
