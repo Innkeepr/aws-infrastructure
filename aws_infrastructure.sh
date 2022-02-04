@@ -1,5 +1,5 @@
 # Set Up AWS Infrastructure
-AWSID=576891989037
+AWSID=YOURAWSID
 # Login to aws
 echo "login to your aws account via access keys:"
 aws configure
