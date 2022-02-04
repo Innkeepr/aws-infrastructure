@@ -34,6 +34,10 @@ aws iam create-policy --policy-document file://Policies/policy_sns.json --policy
 
 echo "Create Policiy: InnkeeprAccessAnalyzer"
 aws iam create-policy --policy-document file://Policies/policy_access_analyzer.json --policy-name InnkeeprAccessAnalyzer --description "Allows Analysis Access for Innkeepr"
+
+echo "Create Policiy: InnkeeprCrossAccountRole"
+aws iam create-policy --policy-document file://Policies/policy_cross_account_repro_push.json --policy-name InnkeeprCrossAccountRole --description "Allows Innkeepr to push Images to Repro"
+
 # Create Roles
 ##  InnkeeprAmazonECSTaskS3BucketRole
 echo "Create Roles: InnkeeprAmazonECSTaskS3BucketRole"
@@ -47,6 +51,11 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprPassR
 echo "Create Roles: innkeepr-lambda-ex"
 aws iam create-role --role-name innkeepr-lambda-ex --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
 aws iam attach-role-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprLambdaAccess --role-name innkeepr-lambda-ex
+
+#InnkeeprCrossAccountRole
+echo "Create Roles: InnkeeprCrossAccountRole"
+aws iam create-role --role-name InnkeeprCrossAccountRole --assume-role-policy-document  file://TrustRelationships/trust_cross_account_repro_push.json
+aws iam attach-role-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprCrossAccountRole --role-name InnkeeprCrossAccountRole
 
 # Attach Policy to Innkeepr User
 echo "Attach Policies to Innkeepr User"
