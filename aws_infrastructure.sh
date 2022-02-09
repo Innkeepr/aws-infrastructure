@@ -38,6 +38,9 @@ aws iam create-policy --policy-document file://Policies/policy_access_analyzer.j
 echo "Create Policiy: InnkeeprCrossAccountRole"
 aws iam create-policy --policy-document file://Policies/policy_cross_account_repro_push.json --policy-name InnkeeprCrossAccountRole --description "Allows Innkeepr to push Images to Repro"
 
+echo "Create Policiy: InnkeeprCloudWatchUser"
+aws iam create-policy --policy-document file://Policies/policiy_cloud_watch_user.json --policy-name InnkeeprCloudWatchUser --description "Allows Innkeepr to access Cloud Watch"
+
 # Create Roles
 ##  InnkeeprAmazonECSTaskS3BucketRole
 echo "Create Roles: InnkeeprAmazonECSTaskS3BucketRole"
@@ -75,3 +78,5 @@ echo "Attach InnkeeprLambdaAccess"
 aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprLambdaAccess --user-name Innkeepr
 echo "Attach InnkeeprAccessAnalyzer"
 aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprAccessAnalyzer --user-name Innkeepr
+echo "Attach InnkeeprCloudWatchUser"
+aws iam attach-user-policy --policy-arn arn:aws:iam::$AWSID:policy/InnkeeprCloudWatchUser --user-name Innkeepr
