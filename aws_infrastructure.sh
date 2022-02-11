@@ -42,6 +42,10 @@ echo "Create Policiy: InnkeeprCloudWatchUser"
 aws iam create-policy --policy-document file://Policies/policiy_cloud_watch_user.json --policy-name InnkeeprCloudWatchUser --description "Allows Innkeepr to access Cloud Watch"
 
 # Create Roles
+echo "Create Roles: InnkeeprECSInstanceRole"
+aws iam create-role --role-name InnkeeprECSInstanceRole --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "ec2.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role --role-name InnkeeprECSInstanceRole
+
 ##  InnkeeprAmazonECSTaskS3BucketRole
 echo "Create Roles: InnkeeprAmazonECSTaskS3BucketRole"
 aws iam create-role --role-name InnkeeprAmazonECSTaskS3BucketRole --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "ecs-tasks.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'

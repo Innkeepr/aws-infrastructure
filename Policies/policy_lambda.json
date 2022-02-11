@@ -70,6 +70,12 @@
             "Resource": [
                 "*"
             ]
+        },
+        {
+            "Sid": "VisualEditor7",
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "arn:aws:sns:eu-central-1:YOURAWSID:innkeepr-vlc-aws-sns"
         }
     ]
 }
