@@ -39,7 +39,7 @@ echo "Create Policiy: InnkeeprCrossAccountRole"
 aws iam create-policy --policy-document file://Policies/policy_cross_account_repro_push.json --policy-name InnkeeprCrossAccountRole --description "Allows Innkeepr to push Images to Repro"
 
 echo "Create Policiy: InnkeeprCloudWatchUser"
-aws iam create-policy --policy-document file://Policies/policiy_cloud_watch_user.json --policy-name InnkeeprCloudWatchUser --description "Allows Innkeepr to access Cloud Watch"
+aws iam create-policy --policy-document file://Policies/policy_cloud_watch_user.json --policy-name InnkeeprCloudWatchUser --description "Allows Innkeepr to access Cloud Watch"
 
 # Create Roles
 echo "Create Roles: InnkeeprECSInstanceRole"
