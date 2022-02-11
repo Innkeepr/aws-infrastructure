@@ -8,6 +8,14 @@
                 "s3:*"
             ],
             "Resource": "*"
+        },
+        {
+            "Sid": "S3ListBuckets",
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": [
+                "*"
+            ]
         }
     ]
 }
