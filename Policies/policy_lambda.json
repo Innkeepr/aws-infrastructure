@@ -75,7 +75,48 @@
             "Sid": "VisualEditor7",
             "Effect": "Allow",
             "Action": "sns:Publish",
-            "Resource": "arn:aws:sns:eu-central-1:YOURAWSID:innkeepr-vlc-aws-sns"
+            "Resource": "arn:aws:sns:eu-central-1:YOURAWSID:innkeepr-YOURCOMPANYNAME-aws-sns"
+        },
+        {
+            "Sid": "AllowEventBridgeAccess",
+            "Effect": "Allow",
+            "Action": "events:ListRules",
+            "Resource": "arn:aws:events:eu-central-1:YOURAWSID:rule/*"
+
+        },
+        {
+            "Sid": "AllowToSendCommandsToInstance",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:SendCommand",
+                "ssm:ListTagsForResource",
+                "ssm:GetCalendarState",
+                "ssm:GetCommandInvocation"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*:*:document/*",
+                "arn:aws:ec2:*:*:instance/*"
+            ]
+        },
+        {
+            "Sid": "GetCommandInvocation",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetCommandInvocation"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Sid":"AllowLogging",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
         }
     ]
 }
