@@ -16,6 +16,14 @@
             "Resource": [
                 "*"
             ]
+        },
+        {
+            "Sid": "AllowPutObjectasInnkeeprS3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject"
+            ],
+            "Resource": "arn:aws:s3:::innkeepr-production/accountId/targeting.history/*"
         }
     ]
 }
