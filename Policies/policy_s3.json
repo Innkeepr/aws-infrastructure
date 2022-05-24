@@ -10,20 +10,19 @@
             "Resource": "*"
         },
         {
-            "Sid": "S3ListBuckets",
-            "Effect": "Allow",
-            "Action": "s3:ListAllMyBuckets",
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Sid": "AllowPutObjectasInnkeeprS3",
             "Effect": "Allow",
             "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:GetObject"
             ],
-            "Resource": "arn:aws:s3:::innkeepr-production/accountId/targeting.history/*"
+            "Resource": "arn:aws:s3:::innkeepr-production/xxx/targeting.history/*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": "arn:aws:s3:::innkeepr-production"
         }
     ]
 }
